@@ -65,9 +65,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startService(){
-        Intent i = new Intent();
-        i.setClass(this, HelloService.class);
-        this.startService(i);
+        // Uses static method of HelloService to get an intent instead of declaring it
+        this.startService(HelloService.getIntent(this));
+
+//        Intent i = new Intent();
+//        i.setClass(this, HelloService.class);
+//        this.startService(i);
     }
 
     private void stopService(){

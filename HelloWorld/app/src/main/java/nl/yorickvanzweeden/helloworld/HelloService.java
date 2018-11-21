@@ -2,6 +2,7 @@ package nl.yorickvanzweeden.helloworld;
 
 import android.app.Service;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Binder;
@@ -24,6 +25,10 @@ public class HelloService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
+    }
+
+    public static Intent getIntent(Context context) {
+        return new Intent(context, HelloService.class);
     }
 
     @Override
